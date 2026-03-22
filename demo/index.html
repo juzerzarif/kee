@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kee demo</title>
+    <meta name="description" content="Demo for @jzarif/kee library" />
+    <meta name="keywords" content="keyboard, keycombo, hotkey" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <div class="root">
+      <h1>@jzarif/kee demo</h1>
+
+      <fieldset class="matcher-field">
+        <legend>Matcher</legend>
+        <label>
+          <input type="radio" name="matcher" value="match" />
+          <span class="monospace">match</span>
+        </label>
+        <label>
+          <input type="radio" name="matcher" value="matchCode" />
+          <span class="monospace">matchCode</span>
+        </label>
+      </fieldset>
+
+      <input placeholder="Press any key combination here..." id="event-target" />
+
+      <div class="platform-display">
+        <h3>Platform:</h3>
+        <p class="platform-str monospace"></p>
+      </div>
+
+      <h3>Event:</h3>
+      <pre id="event-details"></pre>
+
+      <h3>Key Combinations:</h3>
+      <ul id="combo-list"></ul>
+
+      <form id="new-combo-form">
+        <label class="combo-input">
+          <span>Combo:</span>
+          <input class="monospace" name="combo" required />
+        </label>
+        <label>
+          <input type="checkbox" name="strictModifiers" />
+          <span class="monospace">strictModifiers</span>
+        </label>
+        <button type="submit">➕ Add</button>
+      </form>
+    </div>
+
+    <script type="module" src="./demo.ts"></script>
+  </body>
+</html>

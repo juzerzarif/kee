@@ -1,0 +1,6 @@
+.vitest-attachments/
+.vscode/
+coverage/
+demo-static/
+dist/
+node_modules/

@@ -1,0 +1,51 @@
+{
+  "name": "@jzarif/kee",
+  "version": "0.1.0",
+  "description": "Key combination matching on the modern web",
+  "keywords": [
+    "keyboard",
+    "hotkey",
+    "keycombo"
+  ],
+  "author": "Juzer Zarif",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/kee.js",
+  "types": "dist/kee.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/kee.d.ts",
+      "require": "./dist/kee.cjs",
+      "default": "./dist/kee.js"
+    }
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build:lib": "vite build --mode lib",
+    "build:demo": "vite build --mode demo",
+    "start:demo": "vite --mode demo --open",
+    "test:format": "prettier --check .",
+    "test:lint": "eslint .",
+    "test:unit": "vitest run --mode test",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/compat": "^2.0.3",
+    "@eslint/js": "^10.0.1",
+    "@vitest/coverage-v8": "4.1.0",
+    "eslint": "^10.1.0",
+    "jsdom": "^29.0.1",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.1",
+    "vite": "^8.0.3",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^4.1.0"
+  },
+  "packageManager": "pnpm@10.32.1"
+}
