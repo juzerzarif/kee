@@ -1,8 +1,10 @@
-# kee
+# kee [![Tests](https://github.com/juzerzarif/kee/actions/workflows/test.yml/badge.svg)](https://github.com/juzerzarif/kee/actions/workflows/test.yml)
 
 A stateless keyboard event matcher for the browser. Checks if a `KeyboardEvent` matches a combo string like `Control+a`, `CmdOrCtrl+Shift+s`, or `?Shift+Alt+ArrowUp`.
 
 kee abstracts away a lot of the platform specific quirks of keyboard event reporting and attempts to provide reasonable "expected" behavior while making sane compromises.
+
+[Demo](https://juzerzarif.github.io/kee)
 
 ## Install
 
