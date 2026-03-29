@@ -1,0 +1,59 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+      - run: corepack enable pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build lib
+        run: pnpm run build:lib
+
+      - name: Publish to npm
+        run: npm publish --access public
+
+  publish-gh-page:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+      - run: corepack enable pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build demo site
+        run: pnpm run build:demo
+
+      - name: Upload demo site static files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: demo-static
+          path: demo-static/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: demo-static
