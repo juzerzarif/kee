@@ -44,7 +44,7 @@ jobs:
         run: pnpm install
 
       - name: Build demo site
-        run: pnpm run build:demo
+        run: pnpm run build:demo --base=/kee/
 
       - name: Upload demo site static files
         uses: actions/upload-pages-artifact@v3
