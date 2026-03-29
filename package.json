@@ -1,6 +1,6 @@
 {
   "name": "@jzarif/kee",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Key combination matching on the modern web",
   "keywords": [
     "keyboard",
