@@ -32,7 +32,7 @@ const keyCombos = (function setupKeyboardCombinationsList() {
 
       const comboSpan = document.createElement('span');
       comboSpan.classList.add('combo');
-      comboSpan.innerHTML = combo + (strictModifiers ? '' : ' (strictModifiers)');
+      comboSpan.innerHTML = combo + (strictModifiers ? ' (strictModifiers)' : '');
       li.appendChild(comboSpan);
 
       const errorSpan = document.createElement('span');
