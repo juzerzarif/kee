@@ -3,9 +3,20 @@ name: Publish
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      publish-package:
+        description: Publish an npm package
+        type: boolean
+        default: false
+      publish-gh-page:
+        description: Publish to GitHub pages
+        type: boolean
+        default: false
 
 jobs:
   publish-package:
+    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish-package)
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -27,6 +38,7 @@ jobs:
         run: npm publish --access public
 
   publish-gh-page:
+    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish-gh-page)
     runs-on: ubuntu-latest
     permissions:
       pages: write
